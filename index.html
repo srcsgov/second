@@ -116,6 +116,47 @@
             color: #1A2332;
             font-size: 14px;
         }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .currency {
+                margin-top: 10px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .product {
+                padding: 15px;
+            }
+
+            .product-title {
+                font-size: 14px;
+            }
+
+            .product-price {
+                font-size: 14px;
+            }
+
+            .brand-name img {
+                max-width: 150px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -134,7 +175,7 @@
 </header>
 
 <div class="brand-name">
-    <img src="sign.png" alt="A. Montruex & Cie">
+    <img src="sign.png" alt="A. Montreux & Cie">
 </div>
 
 <div class="container">
