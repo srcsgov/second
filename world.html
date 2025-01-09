@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Store</title>
+    <style>
+        body {
+            font-family: "Playfair Display", serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfdfd;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            background-color: #1A2332;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            font-family: "Arial", sans-serif;
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .brand-name {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .brand-name img {
+            max-width: 200px;
+        }
+
+        .currency {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .world-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .world-section img {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .world-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="smartluxury.html">Smart Luxury</a>
+        <a href="store.html">Stores</a>
+        <a href="info.html">Info</a>
+        <a href="world.html">World</a>
+        <a href="index.html">Shop</a>
+    </nav>
+    <div class="currency">
+        USD ($)
+    </div>
+</header>
+
+<div class="brand-name">
+    <img src="sign.png" alt="A. Montruex & Cie">
+</div>
+
+<div class="container">
+    <div class="world-section">
+        <img src="wool.png" alt="Refined Materials">
+        <p>The materials used by A. Montruex & Cie are meticulously selected to meet the highest standards of refinement and elegance. From luxurious textiles to the most exquisite jewels, each component reflects a commitment to unparalleled quality and sophistication.</p>
+        <p>For textile wear, only the finest silks, cashmeres, and rare fibers are used, ensuring unparalleled comfort and an impeccable finish. Every piece is designed to complement the discerning tastes of our elite clientele.</p>
+        <p>When it comes to jewelry, our artisans work with the world's most precious metals and gemstones, crafting pieces that are as unique as they are timeless. The attention to detail and expert craftsmanship result in creations that are nothing short of masterpieces.</p>
+        <p>A. Montruex & Cie embodies the essence of luxury, offering products that not only meet but exceed expectations. Each piece tells a story of dedication, precision, and a pursuit of perfection that elevates the experience of owning something truly exceptional.</p>
+    </div>
+</div>
+
+</body>
+</html>
