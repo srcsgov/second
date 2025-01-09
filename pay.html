@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Store</title>
+    <style>
+        body {
+            font-family: "Playfair Display", serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfdfd;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            background-color: #1A2332;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #fff;
+            color: #1A2332;
+        }
+
+        .brand-name {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .brand-name img {
+            max-width: 200px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .product-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .product-images img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        .product-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-details h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .product-details .price {
+            font-size: 20px;
+            color: #1A2332;
+            margin-bottom: 20px;
+        }
+
+        .product-details .description {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .product-details button {
+            background-color: #1A2332;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-details button:hover {
+            background-color: #333;
+        }
+
+        .product-details .options {
+            margin-bottom: 20px;
+        }
+
+        .product-details .options span {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .product-details .options .color-box {
+            display: inline-block;
+            padding: 5px 10px;
+            margin-right: 10px;
+            border: 1px solid #000;
+            background-color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .product-details .options .color-box:hover {
+            transform: scale(1.05);
+            background-color: #f5f5f5;
+        }
+
+        .dropdown-section {
+            border: 1px solid #1A2332;
+            margin-bottom: 20px;
+            padding: 10px;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .dropdown-section.active {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        .dropdown-title {
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .cart-notice {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            color: #1A2332;
+            padding: 20px;
+            border-radius: 0;
+            text-align: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cart-notice.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-notice button {
+            background-color: #1A2332;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-family: "Playfair Display", serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 0;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-notice button:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+
+        .dropdown-spacer {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #1A2332;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .product-images {
+                order: 2;
+            }
+
+            .product-details {
+                order: 1;
+            }
+
+            nav a {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-details h1 {
+                font-size: 20px;
+            }
+
+            .product-details .price {
+                font-size: 18px;
+            }
+
+            .product-details .description {
+                font-size: 14px;
+            }
+
+            .product-details button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .cart-notice button {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" style="border-radius: 0;">Return to Page</a>
+    </nav>
+</header>
+
+<div class="brand-name">
+    <img src="sign.png" alt="Malcourant Polo Club">
+</div>
+
+<div class="container">
+    <div class="product-images">
+        <img src="https://via.placeholder.com/500" alt="Product Image 1">
+        <img src="https://via.placeholder.com/500" alt="Product Image 2">
+        <img src="https://via.placeholder.com/500" alt="Product Image 3">
+    </div>
+
+    <div class="product-details">
+        <h1>Small Beam Tote</h1>
+        <div class="price">$2,800.00</div>
+        <div class="options">
+            <span>Color:</span>
+            <div class="color-box">Navy Blue</div>
+            <div class="color-box">Red</div>
+        </div>
+        <div class="description">
+            The small Beam tote bag combines practicality and refinement, with its handy design and soft calfskin leather evoking timeless elegance.
+        </div>
+
+        <div class="dropdown-title" onclick="toggleDropdown('details')">Product Details</div>
+        <div id="details" class="dropdown-section">
+            <p>Details about the product go here. Dimensions, materials, and features.</p>
+        </div>
+
+        <div class="dropdown-spacer"></div>
+
+        <div class="dropdown-title" onclick="toggleDropdown('care')">Care & Maintenance</div>
+        <div id="care" class="dropdown-section">
+            <p>Instructions for caring for the product and maintaining its quality.</p>
+        </div>
+
+        <div class="dropdown-spacer"></div>
+
+        <div class="dropdown-title" onclick="toggleDropdown('return')">Return & Exchange</div>
+        <div id="return" class="dropdown-section">
+            <p>Return and exchange policy details go here.</p>
+        </div>
+
+        <div class="dropdown-spacer"></div>
+
+        <div class="dropdown-title" onclick="toggleDropdown('payment')">Payment Options & Security</div>
+        <div id="payment" class="dropdown-section">
+            <p>Details about payment methods and security assurances.</p>
+        </div>
+
+        <button onclick="showCartNotice()">Add to Cart</button>
+    </div>
+</div>
+
+<div id="cart-notice" class="cart-notice">
+    <p>To purchase this product, you must join our waitlist. Due to high demand, we require additional details from you. Please send us an email specifying the product you are interested in and any additional information. Our team will get back to you promptly.</p>
+    <button onclick="hideCartNotice()">Close</button>
+</div>
+
+<script>
+    function toggleDropdown(id) {
+        const section = document.getElementById(id);
+        section.classList.toggle('active');
+    }
+
+    function showCartNotice() {
+        const notice = document.getElementById('cart-notice');
+        notice.classList.add('active');
+    }
+
+    function hideCartNotice() {
+        const notice = document.getElementById('cart-notice');
+        notice.classList.remove('active');
+    }
+</script>
+
+</body>
+</html>

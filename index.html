@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Store</title>
+    <style>
+        body {
+            font-family: "Playfair Display", serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfdfd;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            background-color: #1A2332;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #1A2332;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            border-radius: 4px;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .dropdown a {
+            display: block;
+            color: #fff;
+            padding: 5px 20px;
+            text-decoration: none;
+        }
+
+        .dropdown a:hover {
+            background-color: #333;
+        }
+
+        nav a:hover + .dropdown, .dropdown:hover {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .brand-name {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .brand-name img {
+            max-width: 200px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #1A2332;
+            border-radius: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            max-width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .product a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product a:hover {
+            text-decoration: none;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #1A2332;
+        }
+
+        .product-price {
+            color: #1A2332;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="#">Watches</a>
+        <div class="dropdown">
+            <a href="#">Gold Collection</a>
+            <a href="#">Silver Collection</a>
+            <a href="#">Excellence Collection</a>
+        </div>
+        <a href="#">Clothing</a>
+        <div class="dropdown">
+            <a href="#">Gloves</a>
+            <a href="#">Shoes</a>
+            <a href="#">Tops</a>
+            <a href="#">Shirts</a>
+            <a href="#">Coats</a>
+            <a href="#">Denim</a>
+            <a href="#">Vests</a>
+            <a href="#">Homewear</a>
+            <a href="#">Trousers</a>
+        </div>
+        <a href="#">Jewellery</a>
+        <div class="dropdown">
+            <a href="#">Rings</a>
+            <a href="#">Bracelets</a>
+        </div>
+        <a href="#">Accessories</a>
+        <div class="dropdown">
+            <a href="#">Leather goods</a>
+            <a href="#">Bags</a>
+            <a href="#">Travel</a>
+            <a href="#">Wallets</a>
+            <a href="#">Scarfs</a>
+            <a href="#">Socks</a>
+            <a href="#">Belts</a>
+            <a href="#">Hats</a>
+        </div>
+    </nav>
+</header>
+
+<div class="brand-name">
+    <img src="sign.png" alt="Malcourant Polo Club">
+</div>
+
+<div class="container">
+    <div class="product-grid">
+        <div class="product">
+            <a href="#">
+                <img src="https://via.placeholder.com/300" alt="Product 1">
+                <div class="product-title">Classic V-Neck</div>
+                <div class="product-price">$250</div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="pay.html">
+                <img src="https://via.placeholder.com/300" alt="Product 2">
+                <div class="product-title">Working Pay</div>
+                <div class="product-price">$300</div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="#">
+                <img src="https://via.placeholder.com/300" alt="Product 3">
+                <div class="product-title">Cocooning Gilet</div>
+                <div class="product-price">$400</div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="#">
+                <img src="https://via.placeholder.com/300" alt="Product 4">
+                <div class="product-title">Cashmere Hoodie</div>
+                <div class="product-price">$500</div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="#">
+                <img src="https://via.placeholder.com/300" alt="Product 5">
+                <div class="product-title">Luxury Cardigan</div>
+                <div class="product-price">$350</div>
+            </a>
+        </div>
+        <div class="product">
+            <a href="#">
+                <img src="https://via.placeholder.com/300" alt="Product 6">
+                <div class="product-title">Oversized Sweater</div>
+                <div class="product-price">$450</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
